@@ -1,0 +1,41 @@
+//guess my number 
+//created by James Macklin
+
+#include<iostream>
+#include<cstdlib>
+#include<ctime>//contains files that can determine the time.
+
+using namespace std;
+
+int main()
+{
+	srand(static_cast<unsigned int>(time(0)));//seeds the generator as in previous example
+
+	int secretNumber = rand() % 100 + 1;//makes the range between 1 and 100
+	int tries = 0;
+	int guess;
+
+	cout << "\tWelcome to guess my number\n\n";
+
+	do
+	{
+		cout << "Enter a guess: ";
+		cin >> guess;
+		++tries;
+
+		if (guess > secretNumber)
+		{
+			cout << "Too high\n\n";
+		}
+		else if (guess < secretNumber)
+		{
+			cout << "Too low\n\n";
+		}
+		else
+		{
+			cout << "\nThat's it. You got it in " << tries << " guesses!\n";
+		}
+	} while (guess != secretNumber);
+
+	return 0;
+}
